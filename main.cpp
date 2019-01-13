@@ -4,7 +4,7 @@
 
 //#include <spdlog/spdlog.h>
 
-int main (int argc, char *argv[])
+int main ()
 {
     std::cout<<"Hello world"<<std::endl;
     auto logger = spdlog::stdout_logger_mt("console");
