@@ -1,4 +1,4 @@
-#include "lib.h"
+//#include "lib.h"
 
 #include <iostream>
 
@@ -7,8 +7,7 @@
 int main ()
 {
     std::cout<<"Hello world"<<std::endl;
-    auto logger = spdlog::stdout_logger_mt("console");
-    logger->info("version {} was started", version());
-    std::system("pause");
+    //auto logger = spdlog::stdout_logger_mt("console");
+    //logger->info("version {} was started", version());
     return 0;
 }
