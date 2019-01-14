@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-//#include <spdlog/spdlog.h>
+#include <spdlog/spdlog.h>
 
 int main (int argc, char *argv[])
 {
