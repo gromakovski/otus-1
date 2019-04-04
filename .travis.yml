@@ -24,7 +24,6 @@ before_script:
 
 script:
 - CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-7 cmake .
-- cmake .
 - cmake --build .
 - cmake --build . --target test
 - cmake --build . --target package
