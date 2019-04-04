@@ -13,6 +13,8 @@ include_directories(${GTEST_INCLUDE_DIR})
 
 configure_file(version.h.in version.h)
 
+FILE(GLOB SRCS "*.cpp")
+
 add_executable(helloworld_cli main.cpp)
 
 add_library(helloworld lib.cpp)
