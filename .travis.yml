@@ -1,11 +1,4 @@
-sudo: required
 language: cpp
-
-addons:
-  apt:
-    sources:
-      -ubuntu-toolchain-r-test
-
 
 before_script:
 - sudo apt-get install libboost-test-dev -y
