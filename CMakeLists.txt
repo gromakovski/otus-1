@@ -58,4 +58,4 @@ include(CPack)
 
 enable_testing()
 
-add_test(test_version test_version G_Test)
+add_test(test_version test_version)
