@@ -2,7 +2,14 @@ cmake_minimum_required(VERSION 3.2)
 
 project(helloworld VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
+set (GTEST_ROOT /usr/src/gtest)
+set (GTEST_LIBRARY /usr/src/gtest/libgtest.a)
+set (GTEST_MAIN_LIBRARY /usr/src/gtest/libgtest_main.a)
+
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
+find_package(GTest REQUIRED)
+find_package(Threads REQUIRED)
+include_directories(${GTEST_INCLUDE_DIR})
 
 configure_file(version.h.in version.h)
 
