@@ -19,6 +19,8 @@ add_library(helloworld lib.cpp)
 
 add_executable(test_version test_version.cpp)
 
+add_executable(G_Test test_main.cpp)
+
 set_target_properties(helloworld_cli helloworld test_version PROPERTIES
     CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
@@ -39,6 +41,9 @@ target_link_libraries(test_version
     helloworld
 )
 
+target_link_libraries(
+  G_Test ${GTEST_LIBRARIES} Threads::Threads)
+
 install(TARGETS helloworld_cli RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
@@ -53,4 +58,4 @@ include(CPack)
 
 enable_testing()
 
-add_test(test_version test_version)
+add_test(test_version test_version G_Test)
