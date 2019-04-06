@@ -11,13 +11,6 @@ find_package(GTest REQUIRED)
 find_package(Threads REQUIRED)
 include_directories(${GTEST_INCLUDE_DIR})
 
-if(DEFINED ENV{TRAVIS_BUILD_NUMBER})
-  project(${PROJECT_NAME} VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
-else()
-  project(${PROJECT_NAME} VERSION 0.0.255)
-#  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -L/usr/lib/x86_64-linux-gnu")
-endif()
-
 configure_file(version.h.in version.h)
 
 FILE(GLOB SRCS "*.cpp")
