@@ -1,5 +1,6 @@
 sudo: required
-language: cpp
+language: 
+ - cpp
 
 dist: trusty
 
@@ -20,7 +21,6 @@ before_script:
 - echo "deb http://archive.ubuntu.com/ubuntu xenial main universe" | sudo tee -a /etc/apt/sources.list
 - sudo apt-get update -qq
 - cd $TRAVIS_BUILD_DIR
-- sudo apt-get install libspdlog-dev -y
 
 script:
 - CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-7 cmake .
