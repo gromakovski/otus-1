@@ -1,27 +1,24 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.2)
 
 project(helloworld VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
+
+
+find_package(Boost COMPONENTS unit_test_framework REQUIRED)
+find_package(GTest REQUIRED)
+find_package(Threads REQUIRED)
+
+configure_file(version.h.in version.h)
 
 set (GTEST_ROOT /usr/src/gtest)
 set (GTEST_LIBRARY /usr/src/gtest/libgtest.a)
 set (GTEST_MAIN_LIBRARY /usr/src/gtest/libgtest_main.a)
 
-find_package(Boost COMPONENTS unit_test_framework REQUIRED)
-find_package(GTest REQUIRED)
-find_package(Threads REQUIRED)
-#include_directories(${GTEST_INCLUDE_DIR})
-
-configure_file(version.h.in version.h)
-
-#FILE(GLOB SRCS "*.cpp")
 
 add_executable(helloworld_cli main.cpp)
 
 add_library(helloworld lib.cpp)
 
 add_executable(test_version test_version.cpp)
-
-#add_executable(G_Test test_main.cpp)
 
 set_target_properties(helloworld_cli helloworld test_version PROPERTIES
     CXX_STANDARD 14
@@ -43,8 +40,6 @@ target_link_libraries(test_version
     helloworld
 )
 
-#target_link_libraries(
-#  G_Test ${GTEST_LIBRARIES} Threads::Threads)
 
 install(TARGETS helloworld_cli RUNTIME DESTINATION bin)
 
@@ -58,6 +53,6 @@ set(CPACK_PACKAGE_CONTACT gromakovskiyvladimir1989@gmail.com)
 
 include(CPack)
 
-#enable_testing()
+enable_testing()
 
-#add_test(test_version test_version)
+add_test(test_version test_version)
