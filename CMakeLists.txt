@@ -9,11 +9,11 @@ set (GTEST_MAIN_LIBRARY /usr/src/gtest/libgtest_main.a)
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 find_package(GTest REQUIRED)
 find_package(Threads REQUIRED)
-include_directories(${GTEST_INCLUDE_DIR})
+#include_directories(${GTEST_INCLUDE_DIR})
 
 configure_file(version.h.in version.h)
 
-FILE(GLOB SRCS "*.cpp")
+#FILE(GLOB SRCS "*.cpp")
 
 add_executable(helloworld_cli main.cpp)
 
@@ -58,6 +58,6 @@ set(CPACK_PACKAGE_CONTACT gromakovskiyvladimir1989@gmail.com)
 
 include(CPack)
 
-enable_testing()
+#enable_testing()
 
-add_test(test_version test_version)
+#add_test(test_version test_version)
