@@ -1,26 +1,19 @@
 language: cpp
-dist: trusty
-
-addons:
- apt:
-  sources:
-   - ubuntu-toolchain-r-test
-  packages:
-   - g++-7
-   
+ 
 before_script:
 - sudo apt-get install libboost-test-dev -y
 - sudo apt-get install libgtest-dev -y
+- sudo apt-get install cmake -y
 - cd /usr/src/gtest
-- sudo env "PATH=$PATH" cmake .
+- sudo cmake CMakeLists.txt
 - sudo make
 - sudo cp *.a /usr/lib
 - echo "deb http://archive.ubuntu.com/ubuntu xenial main universe" | sudo tee -a /etc/apt/sources.list
 - sudo apt-get update -qq
-- cd $TRAVIS_BUILD_DIR
+- cd -
 
 script:
-- CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-7 cmake .
+- cmake .
 - cmake --build .
 - cmake --build . --target test
 - cmake --build . --target package
