@@ -2,13 +2,10 @@
 
 #include <iostream>
 
-#include <spdlog/spdlog.h>
-
 int main (int argc, char *argv[])
 {
-    std::cout<<"Hello Lesha"<<std::endl;
-    auto logger = spdlog::stdout_logger_mt("console");
-    logger->info("version {} was started", version());
+    std::cout<<"Hello World"<<std::endl;
+
     return 0;
 }
 
