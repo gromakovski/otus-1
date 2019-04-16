@@ -25,7 +25,7 @@ add_library(helloworld lib.cpp)
 
 add_executable(test_version test_version.cpp)
 
-add_executable(test_main.cpp test_main.cpp)
+add_executable(test_main test_main.cpp)
 
 set_target_properties(helloworld_cli helloworld test_version PROPERTIES
     CXX_STANDARD 14
