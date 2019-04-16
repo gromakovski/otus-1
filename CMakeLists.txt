@@ -25,7 +25,7 @@ add_library(helloworld lib.cpp)
 
 add_executable(test_version test_version.cpp)
 
-add_executable(gtest_version gtest_version.cpp)
+add_executable(test_main.cpp test_main.cpp)
 
 set_target_properties(helloworld_cli helloworld test_version PROPERTIES
     CXX_STANDARD 14
@@ -44,7 +44,7 @@ target_link_libraries(test_version
     ${Boost_LIBRARIES}
     helloworld
 )
-target_link_libraries(gtest_version ${GTEST_BOTH_LIBRARIES} 
+target_link_libraries(test_main.cpp ${GTEST_BOTH_LIBRARIES} 
     helloworld 
     pthread
 )
@@ -65,4 +65,4 @@ include(CPack)
 enable_testing()
 
 #add_test(test_version test_version)
-add_test(gtest_version gtest_version)
+add_test(test_main test_main)
