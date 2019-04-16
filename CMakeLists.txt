@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.2)
 
+set(BUILD_NUMBER 1)
+if($ENV{TRAVIS_BUILD_NUMBER})
+  set(BUILD_NUMBER $ENV{TRAVIS_BUILD_NUMBER})
+endif($ENV{TRAVIS_BUILD_NUMBER})
+
 project(helloworld VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
 
