@@ -46,7 +46,7 @@ target_link_libraries(test_version
     ${Boost_LIBRARIES}
     helloworld
 )
-target_link_libraries(test_main.cpp ${GTEST_BOTH_LIBRARIES} 
+target_link_libraries(test_main ${GTEST_BOTH_LIBRARIES} 
     helloworld 
     pthread
 )
